@@ -21,14 +21,18 @@ const ContactForm = ({formSubmit}) => {
         resetForm();
     }
     return (
-        <Formik initialValues={initialValues} validationSchema={schema} onSubmit={handleSubmit}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={schema}
+        onSubmit={handleSubmit}
+      >
         <Form autoComplete="off">
           <label htmlFor="name">Name</label>
           <Field name="name" type="text" />
-          <ErrorMessage name="name" />
+          <ErrorMessage component="div" name="name" />
           <label htmlFor="tel">Number</label>
           <Field name="number" type="tel" />
-          <ErrorMessage name="number" />
+          <ErrorMessage component="div" name="number" />
           <button type="submit">Add contact</button>
         </Form>
       </Formik>
