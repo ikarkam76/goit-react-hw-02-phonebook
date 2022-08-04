@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import ContactForm from "components/ContactForm/ContactForm";
+import ContactList from "components/ContactList/ContactList";
 
 class App extends Component {
   state = {
     contacts: [],
-    name: '',
+    filter: '',
   };
 
   handleContactFormSubmit = values => {
     this.setState({contacts: [...this.state.contacts, values]})
-    console.log(values);
-    console.log(this.state.contacts);
   };
 
   render() {
@@ -19,13 +18,7 @@ class App extends Component {
         <h1>Phonebook</h1>
         <ContactForm formSubmit={this.handleContactFormSubmit} />
         <h2>Contacts</h2>
-        <ul>
-          {this.state.contacts.map(contact => (
-            <li key={contact.id}>
-              {contact.name}:   {contact.number}
-            </li>
-          ))}
-        </ul>
+        <ContactList contacts={this.state.contacts} />
       </div>
     );
   }
