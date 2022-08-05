@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ContactForm from "components/ContactForm";
 import ContactList from "components/ContactList";
 import FilterContacts from "components/FilterContacts";
+import AppContainer from "components/App.styled";
 
 
 class App extends Component {
@@ -36,13 +37,13 @@ class App extends Component {
     const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
 
     return (
-      <div>
+      <AppContainer>
         <h1>Phonebook</h1>
         <ContactForm formSubmit={this.handleContactFormSubmit} />
         <h2>Contacts</h2>
         <FilterContacts value={filter} onChange={this.changeFilter} />
         <ContactList contacts={filteredContacts} onDelete={this.deleteContact} />
-      </div>
+      </AppContainer>
     );
   }
 };
