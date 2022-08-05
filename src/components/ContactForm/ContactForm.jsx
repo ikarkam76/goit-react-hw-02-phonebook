@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
 import * as yup from 'yup';
+import { FormButton, FormContainer, FormLabel } from './ContactForm.styled';
 
 const schema = yup.object().shape({
     name: yup.string().required('Please enter your name!'),
@@ -21,21 +22,23 @@ const ContactForm = ({formSubmit}) => {
         resetForm();
     }
     return (
-      <Formik
-        initialValues={initialValues}
-        validationSchema={schema}
-        onSubmit={handleSubmit}
-      >
-        <Form autoComplete="off">
-          <label htmlFor="name">Name</label>
-          <Field name="name" type="text" />
-          <ErrorMessage component="div" name="name" />
-          <label htmlFor="tel">Number</label>
-          <Field name="number" type="tel" />
-          <ErrorMessage component="div" name="number" />
-          <button type="submit">Add contact</button>
-        </Form>
-      </Formik>
+      <FormContainer>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={schema}
+          onSubmit={handleSubmit}
+        >
+          <Form autoComplete="off">
+            <FormLabel htmlFor="name">Name</FormLabel>
+            <Field name="name" type="text" />
+            <ErrorMessage component="div" name="name" />
+            <FormLabel htmlFor="tel">Number</FormLabel>
+            <Field name="number" type="tel" />
+            <ErrorMessage component="div" name="number" /><br/>
+            <FormButton type="submit">Add contact</FormButton>
+          </Form>
+        </Formik>
+      </FormContainer>
     );
 };
 

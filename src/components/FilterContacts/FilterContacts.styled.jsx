@@ -2,8 +2,6 @@ import styled from '@emotion/styled';
 
 export const Filter = styled.div`
   width: 400px;
-  display: flex;
-  justify-content: space-between;
   border: 1px solid grey;
   border-radius: 5px;
   background-color: #ebe8e8;
